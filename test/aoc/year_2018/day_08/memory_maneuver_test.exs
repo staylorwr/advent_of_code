@@ -19,11 +19,12 @@ defmodule Aoc.Year2018.Day08.MemoryManeuverTest do
 
   describe "part_2/1" do
     test "examples" do
+      assert MemoryManeuver.part_2(@example) == 66
     end
 
     @tag day: 08, year: 2018
     test "input", %{input: input} do
-      assert input |> MemoryManeuver.part_2() == input
+      assert input |> MemoryManeuver.part_2() == 21502
     end
   end
 end
