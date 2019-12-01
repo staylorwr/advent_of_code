@@ -118,15 +118,15 @@ defmodule Aoc.Year2018.Day09.MarbleMania do
     |> play_game(player_count, next_player)
   end
 
-  def player_turn(%{next_marble: next, marbles: marbles, next_marble: marble} = game, player)
+  def player_turn(%{next_marble: next, marbles: marbles} = game, player)
       when rem(next, 23) == 0 do
     marbles = Enum.reduce(0..6, marbles, fn _, acc -> ZipList.prev(acc) end)
 
     scored = ZipList.current(marbles)
     marbles = ZipList.delete(marbles)
-    scores = Map.update(game.scores, player, 0, &(&1 + marble + scored))
+    scores = Map.update(game.scores, player, 0, &(&1 + next + scored))
 
-    %{game | scores: scores, next_marble: marble + 1, marbles: marbles}
+    %{game | scores: scores, next_marble: next + 1, marbles: marbles}
   end
 
   def player_turn(game, _player) do
