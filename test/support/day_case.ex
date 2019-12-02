@@ -6,7 +6,7 @@ defmodule Aoc.DayCase do
 
   setup tags do
     if tags[:day] do
-      {:ok, input: Aoc.InputLoader.input(tags[:year], tags[:day])}
+      {:ok, input: Aoc.InputLoader.input(tags[:year], tags[:day], tags)}
     else
       :ok
     end
