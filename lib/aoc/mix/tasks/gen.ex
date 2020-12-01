@@ -32,7 +32,7 @@ defmodule Mix.Tasks.Aoc.Gen do
   end
 
   defp generate(day, year: year) do
-    case Aoc.Site.get_input(year, day) do
+    case Aoc.Site.get_day(year, day) do
       {:ok, %{status: 200, body: body}} ->
         Aoc.DayGenerator.generate(day, year, body)
 

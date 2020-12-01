@@ -113,7 +113,7 @@ defmodule Aoc.DayGenerator do
 
   defp generate_input({day, year, _body}) do
     case get_input(day, year) do
-      %{status_code: 200, body: body} ->
+      %{status: 200, body: body} ->
         File.mkdir_p(input_file_folder(year))
 
         File.write!(
@@ -123,7 +123,7 @@ defmodule Aoc.DayGenerator do
 
         Mix.shell().info("Created Input File")
 
-      %{status_code: code, body: body} ->
+      %{status: code, body: body} ->
         Mix.raise("Test Input HTTP Error #{code}: #{body}")
     end
   end
@@ -203,7 +203,7 @@ defmodule Aoc.DayGenerator do
   end
 
   defp get_input(day, year) do
-    {:ok, resp} = Aoc.Site.get_day(year, day)
+    {:ok, resp} = Aoc.Site.get_input(year, day)
     resp
   end
 
