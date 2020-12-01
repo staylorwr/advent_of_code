@@ -40,7 +40,7 @@ defmodule Aoc.Year2018.Day10.TheStarsAlignTest do
 
   describe "part_1/1" do
     test "examples" do
-      assert {graph, 3} = TheStarsAlign.part_1(@example)
+      assert {_graph, 3} = TheStarsAlign.part_1(@example)
     end
 
     @tag day: 10, year: 2018
