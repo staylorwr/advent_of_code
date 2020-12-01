@@ -80,7 +80,8 @@ defmodule Aoc.DayGenerator do
       EEx.eval_file("priv/templates/main_module.eex",
         year: year,
         day: String.pad_leading(day, 2, "0"),
-        title: module_name
+        title: module_name,
+        module_documentation: module_docs_from_body(body)
       )
 
     File.mkdir_p(file_folder(day, year))
