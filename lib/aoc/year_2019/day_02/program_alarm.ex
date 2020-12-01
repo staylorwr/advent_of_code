@@ -1,4 +1,4 @@
-defmodule Aoc.Year<%= year %>.Day<%= day %>.<%= title %> do
+defmodule Aoc.Year2019.Day02.ProgramAlarm do
   @doc """
 
   """
