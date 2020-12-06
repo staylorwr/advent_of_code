@@ -108,7 +108,7 @@ defmodule Aoc.Year2020.Day05.BinaryBoarding do
 
   """
   def part_2(input) do
-    [[left, right]] =
+    [[left, _right]] =
       input
       |> String.split("\n", trim: true)
       |> Enum.map(&Seat.new/1)
