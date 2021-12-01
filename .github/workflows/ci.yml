@@ -1,0 +1,16 @@
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Elixir Unit Tests
+    steps:
+      - uses: actions/checkout@v2
+      - uses: erlef/setup-beam@v1
+        with:
+          otp-version: '24.1.7'
+          elixir-version: '1.12.3'
+      - run: mix deps.get
+      - run: mix compile --warnings-as-errors
+      - run: mix format --check-formatted
+      - run: mix test
