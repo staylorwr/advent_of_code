@@ -1,5 +1,5 @@
 defmodule Aoc.Year2021.Day01.SonarSweepTest do
-  use Aoc.DayCase
+  use Aoc.DayCase, async: true
   doctest Aoc.Year2021.Day01.SonarSweep, import: true
 
   alias Aoc.Year2021.Day01.SonarSweep, as: Day01
