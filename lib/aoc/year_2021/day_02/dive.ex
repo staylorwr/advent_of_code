@@ -45,7 +45,8 @@ defmodule Aoc.Year2021.Day02.Dive do
   """
 
   @doc """
-
+  Track the distance and depth of the submarine as it works through a list of
+  movement instructions
   """
   def part_1(input) do
     Enum.reduce(input, %{depth: 0, distance: 0}, fn
@@ -61,9 +62,19 @@ defmodule Aoc.Year2021.Day02.Dive do
   end
 
   @doc """
-
+  Track the distance, depth and aim of the submarine
   """
   def part_2(input) do
-    input
+    Enum.reduce(input, %{depth: 0, distance: 0, aim: 0}, fn
+      "forward " <> dist, %{depth: d, distance: x, aim: a} ->
+        dist = String.to_integer(dist)
+        %{depth: d + a * dist, distance: x + dist, aim: a}
+
+      "down " <> dist, position ->
+        %{position | aim: position.aim + String.to_integer(dist)}
+
+      "up " <> dist, position ->
+        %{position | aim: position.aim - String.to_integer(dist)}
+    end)
   end
 end

@@ -26,11 +26,12 @@ defmodule Aoc.Year2021.Day02.DiveTest do
 
   describe "part_2/1" do
     test "examples" do
+      assert %{aim: 10, depth: 60, distance: 15} == Day02.part_2(@example)
     end
 
-    @tag day: 02, year: 2021
+    @tag day: 02, year: 2021, as_lines: true
     test "input", %{input: input} do
-      assert input |> Day02.part_2() == input
+      assert input |> Day02.part_2() == %{aim: 741, depth: 642_047, distance: 1998}
     end
   end
 end
