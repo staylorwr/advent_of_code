@@ -68,6 +68,7 @@ defmodule Aoc.DayGenerator do
 
   defp body_contains_part_two?(body) do
     body
+    |> Floki.parse_document!()
     |> Floki.find(".day-desc #part2")
     |> Enum.any?()
   end
@@ -154,6 +155,7 @@ defmodule Aoc.DayGenerator do
 
   def title_from_body(body) do
     body
+    |> Floki.parse_document!()
     |> Floki.find("article h2")
     |> List.first()
     |> Floki.text()
@@ -164,6 +166,7 @@ defmodule Aoc.DayGenerator do
 
   def module_docs_from_body(body) do
     body
+    |> Floki.parse_document!()
     |> Floki.find("article")
     |> document_to_markdown()
   end
