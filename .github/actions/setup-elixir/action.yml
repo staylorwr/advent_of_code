@@ -81,7 +81,6 @@ runs:
     # I force a full recompile only on builds that we retry.
     - name: Clean to rule out incremental build as a source of flakiness
       if: github.run_attempt != '1'
-      working-directory: ./api
       run: |
         mix deps.clean --all
         mix clean
@@ -89,18 +88,15 @@ runs:
 
     - name: Install Rebar
       run: mix local.rebar --force
-      working-directory: ./api
       shell: sh
       if: inputs.install-rebar == 'true'
 
     - name: Install Hex
       run: mix local.hex --force
-      working-directory: ./api
       shell: sh
       if: inputs.install-hex == 'true'
 
     - name: Install Dependencies
-      working-directory: ./api
       env:
         HEX_API_KEY: ${{ inputs.teal-secret-key }}
       run: |
@@ -109,13 +105,11 @@ runs:
       shell: sh
 
     - name: Compile Dependencies
-      working-directory: ./api
       run: mix deps.compile
       shell: sh
       if: inputs.build-deps == 'true'
 
     - name: Compile Application
-      working-directory: ./api
       run: mix compile ${{ inputs.build-flags }}
       shell: sh
       if: inputs.build-app == 'true'
