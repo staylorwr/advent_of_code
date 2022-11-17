@@ -77,12 +77,6 @@ defmodule Aoc.Year2021.Day17.TrickShot do
   end
 
   @doc """
-      iex> step({{0,0}, {3,4}})
-      {{2,3}, {3,4}}
-      iex> step({{0,0}, {-3,4}})
-      {{-3,4}, {-2,3}}
-      iex> step({{0,0}, {0,4}})
-      {{0,4}, {0,3}}
   """
   def step({{vx, vy}, {x, y}}) when vx > 0 do
     {{vx - 1, vy - 1}, {x + vx, y + vy}}
