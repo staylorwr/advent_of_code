@@ -1,3 +1,4 @@
+name: Elixir Quality Checks
 on: push
 
 jobs:
