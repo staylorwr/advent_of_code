@@ -84,22 +84,28 @@ runs:
       run: |
         mix deps.clean --all
         mix clean
+      shell: sh
 
     - name: Install Rebar
       run: mix local.rebar --force
+      shell: sh
       if: inputs.install-rebar == 'true'
 
     - name: Install Hex
       run: mix local.hex --force
+      shell: sh
       if: inputs.install-hex == 'true'
 
     - name: Install Dependencies
       run: mix deps.get
+      shell: sh
 
     - name: Compile Dependencies
       run: mix deps.compile
+      shell: sh
       if: inputs.build-deps == 'true'
 
     - name: Compile Application
       run: mix compile ${{ inputs.build-flags }}
+      shell: sh
       if: inputs.build-app == 'true'
