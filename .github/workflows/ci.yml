@@ -25,6 +25,3 @@ jobs:
       - name: Check code formatting
         run: mix format --check-formatted
         if: always()
-      - name: Run Credo
-        run: mix credo --strict
-        if: always()
