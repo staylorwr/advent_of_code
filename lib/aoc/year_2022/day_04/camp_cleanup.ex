@@ -64,6 +64,23 @@ defmodule Aoc.Year2022.Day04.CampCleanup do
   example, there are `*2*` such pairs.
 
   *In how many assignment pairs does one range fully contain the other?*
+
+  ## --- Part Two ---
+
+  It seems like there is still quite a bit of duplicate work planned. Instead, the
+  Elves would like to know the number of pairs that *overlap at all*.
+
+  In the above example, the first two pairs (`2-4,6-8` and `2-3,4-5`) don't
+  overlap, while the remaining four pairs (`5-7,7-9`, `2-8,3-7`, `6-6,4-6`, and
+  `2-6,4-8`) do overlap:
+
+  - `5-7,7-9` overlaps in a single section, `7`.
+  - `2-8,3-7` overlaps all of the sections `3` through `7`.
+  - `6-6,4-6` overlaps in a single section, `6`.
+  - `2-6,4-8` overlaps in sections `4`, `5`, and `6`.
+  So, in this example, the number of overlapping assignment pairs is `*4*`.
+
+  *In how many assignment pairs do the ranges overlap?*
   """
 
   @doc """
@@ -72,18 +89,24 @@ defmodule Aoc.Year2022.Day04.CampCleanup do
   def part_1(input) do
     input
     |> parse()
-    |> Enum.count(&overlap?/1)
-  end
-
-  def overlap?([a, b]) do
-    MapSet.subset?(a, b) || MapSet.subset?(b, a)
+    |> Enum.count(&subset?/1)
   end
 
   @doc """
-
+  *In how many assignment pairs do the ranges overlap?*
   """
   def part_2(input) do
     input
+    |> parse()
+    |> Enum.count(&overlap?/1)
+  end
+
+  def subset?([a, b]) do
+    MapSet.subset?(a, b) || MapSet.subset?(b, a)
+  end
+
+  def overlap?([a, b]) do
+    not MapSet.disjoint?(a, b)
   end
 
   defp parse(input) do

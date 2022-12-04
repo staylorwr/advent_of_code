@@ -26,11 +26,12 @@ defmodule Aoc.Year2022.Day04.CampCleanupTest do
 
   describe "part_2/1" do
     test "examples" do
+      assert Day04.part_2(@example) == 4
     end
 
     @tag day: 04, year: 2022
     test "input", %{input: input} do
-      assert input |> Day04.part_2() == input
+      assert input |> Day04.part_2() == 914
     end
   end
 end
