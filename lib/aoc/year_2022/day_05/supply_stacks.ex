@@ -21,18 +21,35 @@ defmodule Aoc.Year2022.Day05.SupplyStacks do
   """
 
   def part_1(input) do
-    initial_state = parse(input)
-    final_state = Enum.reduce(initial_state.instructions, initial_state.stacks, &move/2)
-
-    Enum.map(final_state, &List.first/1) |> Enum.join()
+    input
+    |> parse()
+    |> move()
+    |> solve()
   end
 
   def part_2(input) do
     input
+    |> parse()
+    |> batch_move()
+    |> solve()
+  end
+
+  defp solve(state) do
+    state
+    |> Enum.map(&List.first/1)
+    |> Enum.join()
   end
 
   defmodule State do
     defstruct stacks: [], instructions: []
+  end
+
+  def move(state) do
+    Enum.reduce(state.instructions, state.stacks, &move/2)
+  end
+
+  def batch_move(state) do
+    Enum.reduce(state.instructions, state.stacks, &batch_move/2)
   end
 
   def move({count, from, to}, stacks) do
@@ -44,6 +61,14 @@ defmodule Aoc.Year2022.Day05.SupplyStacks do
       |> List.update_at(from - 1, fn _ -> from_stack end)
       |> List.update_at(to - 1, fn _ -> new_destination_stack end)
     end)
+  end
+
+  def batch_move({count, from, to}, stacks) do
+    {head, tail} = stacks |> Enum.at(from - 1) |> Enum.split(count)
+
+    stacks
+    |> List.update_at(from - 1, fn _ -> tail end)
+    |> List.update_at(to - 1, &(head ++ &1))
   end
 
   def parse(input) do

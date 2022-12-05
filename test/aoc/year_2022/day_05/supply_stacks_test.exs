@@ -23,17 +23,18 @@ defmodule Aoc.Year2022.Day05.SupplyStacksTest do
 
     @tag day: 05, year: 2022
     test "input", %{input: input} do
-      assert input |> Day05.part_1() == "ABC"
+      assert input |> Day05.part_1() == "VGBBJCRMN"
     end
   end
 
   describe "part_2/1" do
     test "examples" do
+      assert Day05.part_2(@example) == "MCD"
     end
 
     @tag day: 05, year: 2022
     test "input", %{input: input} do
-      assert input |> Day05.part_2() == input
+      assert input |> Day05.part_2() == "LBBVJBRMH"
     end
   end
 
