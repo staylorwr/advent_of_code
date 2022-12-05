@@ -201,7 +201,7 @@ defmodule Aoc.DayGenerator do
       "em" -> "*#{content}*"
       "code" -> "`#{content}`"
       "p" -> "#{Aoc.WordWrap.paragraph(content, 80)} \n\n"
-      "li" -> "- #{content} \n"
+      "li" -> "- #{Aoc.WordWrap.paragraph(content, 80)} \n"
       _ -> content
     end
   end
@@ -214,7 +214,7 @@ defmodule Aoc.DayGenerator do
   def find_and_append_moduledocs(body, docs) do
     [{first, _length} | _] = Regex.run(~r/  """\n/, body, return: :index)
 
-    {part_1, part_2} = String.split_at(body, first - 8)
+    {part_1, part_2} = String.split_at(body, first - 14)
 
     part_1 <> "\n" <> String.slice(docs, 0..-3) <> part_2
   end
