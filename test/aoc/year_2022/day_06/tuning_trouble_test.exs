@@ -21,11 +21,16 @@ defmodule Aoc.Year2022.Day06.TuningTroubleTest do
 
   describe "part_2/1" do
     test "examples" do
+      assert Day06.part_2("mjqjpqmgbljsphdztnvjfqwrcgsmlb") == 19
+      assert Day06.part_2("bvwbjplbgvbhsrlpgdmjqwftvncz") == 23
+      assert Day06.part_2("nppdvjthqldpwncqszvftbrmjlhg") == 23
+      assert Day06.part_2("nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg") == 29
+      assert Day06.part_2("zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw") == 26
     end
 
     @tag day: 06, year: 2022
     test "input", %{input: input} do
-      assert input |> Day06.part_2() == input
+      assert input |> Day06.part_2() == 3965
     end
   end
 end

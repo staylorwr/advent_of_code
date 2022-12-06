@@ -53,6 +53,25 @@ defmodule Aoc.Year2022.Day06.TuningTrouble do
   *How many characters need to be processed before the first start-of-packet
   marker is detected?*
 
+  ## --- Part Two ---
+
+  Your device's communication system is correctly detecting packets, but still
+  isn't working. It looks like it also needs to look for *messages*.
+
+  A *start-of-message marker* is just like a start-of-packet marker, except it
+  consists of *14 distinct characters* rather than 4.
+
+  Here are the first positions of start-of-message markers for all of the above
+  examples:
+
+  - `mjqjpqmgbljsphdztnvjfqwrcgsmlb`: first marker after character `*19*`
+  - `bvwbjplbgvbhsrlpgdmjqwftvncz`: first marker after character `*23*`
+  - `nppdvjthqldpwncqszvftbrmjlhg`: first marker after character `*23*`
+  - `nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg`: first marker after character `*29*`
+  - `zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw`: first marker after character `*26*`
+
+  *How many characters need to be processed before the first start-of-message
+  marker is detected?*
   """
 
   def part_1(input) do
@@ -65,7 +84,11 @@ defmodule Aoc.Year2022.Day06.TuningTrouble do
 
   def part_2(input) do
     input
+    |> String.codepoints()
+    |> Enum.chunk_every(14, 1, :discard)
+    |> Enum.find_index(&different?/1)
+    |> Kernel.+(14)
   end
 
-  defp different?(list), do: list |> Enum.uniq() |> length() == 4
+  defp different?(list), do: list |> Enum.uniq() |> length() == length(list)
 end
