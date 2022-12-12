@@ -47,19 +47,4 @@ defmodule Aoc.Year2022.Day09.RopeBridgeTest do
       assert input |> Day09.part_2() == 2514
     end
   end
-
-  describe "State.move_tail/2" do
-    test "tail must always be touching head" do
-      assert Day09.State.move_tail({1, 0}, {0, 0}) == {0, 0}
-      assert Day09.State.move_tail({1, 1}, {0, 0}) == {0, 0}
-      assert Day09.State.move_tail({0, 1}, {0, 0}) == {0, 0}
-    end
-
-    test "tail moves on axes to keep up" do
-      assert Day09.State.move_tail({2, 0}, {0, 0}) == {1, 0}
-      assert Day09.State.move_tail({0, 2}, {0, 0}) == {0, 1}
-      assert Day09.State.move_tail({0, -2}, {0, 0}) == {0, -1}
-      assert Day09.State.move_tail({-2, 0}, {0, 0}) == {-1, 0}
-    end
-  end
 end
