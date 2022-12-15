@@ -1,5 +1,5 @@
 defmodule Aoc.Year2022.Day14.RegolithReservoir do
-  alias __MODULE__.{Dropper, Parser, Part1, Part2}
+  alias __MODULE__.{Parser, Part1}
 
   def part_1(input) do
     input
