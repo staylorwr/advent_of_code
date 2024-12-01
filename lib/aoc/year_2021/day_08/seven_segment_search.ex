@@ -38,9 +38,9 @@ defmodule Aoc.Year2021.Day08.SevenSegmentSearch do
 
       iex> {input, output} = parse_display(["acedgfb cdfbe gcdfa fbcad dab cefabd cdfgeb eafb cagedb ab", "cdfeb fcadb cdfeb cdbaf"])
       iex> input
-      %{2 => ['ab'], 3 => ['dab'], 4 => ['eafb'], 5 => ['cdfbe', 'gcdfa', 'fbcad'], 6 => ['cefabd', 'cdfgeb', 'cagedb'], 7 => ['acedgfb']}
+      %{2 => [~c"ab"], 3 => [~c"dab"], 4 => [~c"eafb"], 5 => [~c"cdfbe", ~c"gcdfa", ~c"fbcad"], 6 => [~c"cefabd", ~c"cdfgeb", ~c"cagedb"], 7 => [~c"acedgfb"]}
       iex> output
-      ['cdfeb', 'fcadb', 'cdfeb', 'cdbaf']
+      [~c"cdfeb", ~c"fcadb", ~c"cdfeb", ~c"cdbaf"]
   """
 
   def parse_display([input, output]) do

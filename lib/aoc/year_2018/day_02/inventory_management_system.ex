@@ -114,7 +114,7 @@ defmodule Aoc.Year2018.Day02.InventoryManagementSystem do
 
   defp get_equal_letters(a, b) do
     List.myers_difference(a, b)
-    |> Enum.reduce('', fn
+    |> Enum.reduce(~c"", fn
       {:eq, letters}, acc ->
         acc ++ letters
 

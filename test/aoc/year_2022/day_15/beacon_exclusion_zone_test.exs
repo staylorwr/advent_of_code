@@ -84,9 +84,9 @@ defmodule Aoc.Year2022.Day15.BeaconExclusionZoneTest do
     end
 
     defp graph(perim) do
-      for y <- 20..-20 do
+      for y <- 20..-20//-1 do
         part =
-          for x <- -20..20 do
+          for x <- -20..20//1 do
             cond do
               MapSet.member?(perim, {x, y}) -> "X"
               {x, y} == {0, 0} -> "O"

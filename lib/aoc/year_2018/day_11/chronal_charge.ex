@@ -144,8 +144,8 @@ defmodule Aoc.Year2018.Day11.ChronalCharge do
   defp generate_summed_area_table(serial) do
     table = :ets.new(:day11, [:set])
 
-    Enum.each(@max_size..1, fn x ->
-      Enum.each(@max_size..1, fn y ->
+    Enum.each(@max_size..1//-1, fn x ->
+      Enum.each(@max_size..1//-1, fn y ->
         :ets.insert(
           table,
           {{x, y},

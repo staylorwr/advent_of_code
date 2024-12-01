@@ -22,7 +22,7 @@ defmodule Aoc.Year2021.Day17.TrickShot do
 
   This is a [triangular number](https://en.wikipedia.org/wiki/Triangular_number)
   """
-  def part_1({_x, y1.._}) do
+  def part_1({_x, y1.._//1}) do
     div(y1 * (y1 + 1), 2)
   end
 
@@ -53,9 +53,9 @@ defmodule Aoc.Year2021.Day17.TrickShot do
   #        v + 1/2 = sqrt(2 x_min + 1/4)
   #              v = sqrt(2 x_min + 1/4) - 1/2
   """
-  def candidates({x1..x2, y1.._}) do
+  def candidates({x1..x2//1, y1.._//1}) do
     min_x = trunc(:math.sqrt(2 * x1 - 1 / 4) - 1 / 2)
-    for x <- min_x..x2, y <- y1..(-y1 - 1), do: {x, y}
+    for x <- min_x..x2//1, y <- y1..(-y1 - 1)//1, do: {x, y}
   end
 
   @doc """
@@ -72,7 +72,7 @@ defmodule Aoc.Year2021.Day17.TrickShot do
   def in?({px, py}, {rx, ry}), do: px in rx and py in ry
   def in?(path, target), do: Enum.any?(path, &in?(&1, target))
 
-  def past?({px, py}, {tx1..tx2, ty1..ty2}) do
+  def past?({px, py}, {tx1..tx2//1, ty1..ty2//1}) do
     px > max(tx1, tx2) or py < min(ty1, ty2)
   end
 

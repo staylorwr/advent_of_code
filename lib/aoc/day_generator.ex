@@ -216,6 +216,6 @@ defmodule Aoc.DayGenerator do
 
     {part_1, part_2} = String.split_at(body, first - 14)
 
-    part_1 <> "\n" <> String.slice(docs, 0..-3) <> part_2
+    part_1 <> "\n" <> String.slice(docs, 0..-3//1) <> part_2
   end
 end
