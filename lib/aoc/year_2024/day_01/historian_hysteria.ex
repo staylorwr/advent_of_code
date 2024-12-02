@@ -17,11 +17,7 @@ defmodule Aoc.Year2024.Day01.HistorianHysteria do
       input
       |> Parser.parse()
 
-    counted_weights =
-      weights
-      |> Enum.group_by(& &1)
-      |> Enum.map(fn {x, y} -> {x, Enum.count(y)} end)
-      |> Enum.into(%{})
+    counted_weights = Enum.frequencies(weights)
 
     sources
     |> Enum.map(fn x ->
