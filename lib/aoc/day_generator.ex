@@ -162,6 +162,7 @@ defmodule Aoc.DayGenerator do
     |> String.replace(@prepend_title_pattern, "")
     |> String.replace(" ---", "")
     |> String.trim()
+    |> String.replace("-", "_")
   end
 
   def module_docs_from_body(body) do
