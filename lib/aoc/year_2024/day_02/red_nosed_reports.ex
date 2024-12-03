@@ -52,10 +52,13 @@ defmodule Aoc.Year2024.Day02.RedNosedReports do
   defp can_be_dampened_safe?(_, report) do
     positions = 0..(length(report) - 1)//1
 
-    Enum.find(positions, fn index ->
-      {_, remaining} = List.pop_at(report, index)
-      safe?(remaining)
-    end)
+    dampened_safely =
+      Enum.find(positions, false, fn index ->
+        {_, remaining} = List.pop_at(report, index)
+        safe?(remaining)
+      end)
+
+    dampened_safely != false
   end
 
   @doc """

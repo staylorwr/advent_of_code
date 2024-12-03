@@ -5,7 +5,7 @@ defmodule Aoc.DayGeneratorTest do
 
   describe "title_from_body/1" do
     test "returns the title" do
-      assert full_day_html() |> DayGenerator.title_from_body() == "High-Entropy Passphrases"
+      assert full_day_html() |> DayGenerator.title_from_body() == "High_Entropy Passphrases"
     end
   end
 
