@@ -4,7 +4,7 @@ import Config
 
 config :aoc, key: System.get_env("SESSION_KEY")
 
-config :tesla, adapter: Tesla.Adapter.Mint
+config :tesla, adapter: Tesla.Adapter.Mint, disable_deprecated_builder_warning: true
 
 # This configuration is loaded before any dependency and is restricted
 # to this project. If another project depends on this project, this

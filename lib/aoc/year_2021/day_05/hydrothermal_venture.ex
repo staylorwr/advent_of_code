@@ -66,7 +66,9 @@ defmodule Aoc.Year2021.Day05.HydrothermalVenture do
     input
     |> parse()
     |> Enum.filter(&only_axial/1)
-    |> Enum.map(fn [{x1, x2}, {y1, y2}] -> {x1..x2, y1..y2} end)
+    |> Enum.map(fn [{x1, x2}, {y1, y2}] ->
+      {x1..x2//if(x1 <= x2, do: 1, else: -1), y1..y2//if(y1 <= y2, do: 1, else: -1)}
+    end)
     |> Enum.flat_map(fn {xr, yr} -> for(x <- xr, y <- yr, do: {x, y}) end)
     |> Enum.frequencies()
     |> Enum.filter(&(elem(&1, 1) >= 2))
@@ -78,13 +80,13 @@ defmodule Aoc.Year2021.Day05.HydrothermalVenture do
     |> parse()
     |> Enum.flat_map(fn
       [{x, x}, {y1, y2}] ->
-        for(y <- y1..y2, do: {x, y})
+        for(y <- y1..y2//if(y1 <= y2, do: 1, else: -1), do: {x, y})
 
       [{x1, x2}, {y, y}] ->
-        for(x <- x1..x2, do: {x, y})
+        for(x <- x1..x2//if(x1 <= x2, do: 1, else: -1), do: {x, y})
 
       [{x1, x2}, {y1, y2}] ->
-        [x1..x2, y1..y2]
+        [x1..x2//if(x1 <= x2, do: 1, else: -1), y1..y2//if(y1 <= y2, do: 1, else: -1)]
         |> Enum.map(&Enum.to_list/1)
         |> Enum.zip()
     end)

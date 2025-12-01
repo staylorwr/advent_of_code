@@ -193,7 +193,7 @@ defmodule Aoc.Year2021.Day04.GiantSquid do
 
   defp transpose(rows) do
     rows
-    |> List.zip()
+    |> Enum.zip()
     |> Enum.map(&Tuple.to_list/1)
   end
 end

@@ -5,7 +5,7 @@ defmodule Aoc.MixProject do
     [
       app: :aoc,
       version: "0.1.0",
-      elixir: "~> 1.17",
+      elixir: "~> 1.19",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       deps: deps()
@@ -23,10 +23,10 @@ defmodule Aoc.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:tesla, "~> 1.13.2"},
+      {:tesla, "~> 1.15"},
       {:jason, "~> 1.4"},
-      {:mint, "~> 1.0"},
-      {:floki, "~> 0.36.3"},
+      {:mint, "~> 1.7"},
+      {:floki, "~> 0.38"},
       {:libgraph, "~> 0.16"}
     ]
   end

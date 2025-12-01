@@ -93,7 +93,7 @@ defmodule Aoc.Year2022.Day08.TreetopTreeHouse do
     end
 
     def points(:north, {x, y}, _) do
-      Enum.map((y - 1)..0, fn y -> {x, y} end)
+      Enum.map((y - 1)..0//-1, fn y -> {x, y} end)
     end
 
     def points(:east, {x, y}, %{x: max_x}) do
@@ -105,7 +105,7 @@ defmodule Aoc.Year2022.Day08.TreetopTreeHouse do
     end
 
     def points(:west, {x, y}, _) do
-      Enum.map((x - 1)..0, fn x -> {x, y} end)
+      Enum.map((x - 1)..0//-1, fn x -> {x, y} end)
     end
 
     def inner_grid(%{grid: grid, max: %{x: max_x, y: max_y}}) do

@@ -118,7 +118,7 @@ defmodule Aoc.Year2022.Day05.SupplyStacks do
     |> Enum.map(fn row ->
       row ++ List.duplicate(" ", max_length - length(row))
     end)
-    |> List.zip()
+    |> Enum.zip()
     |> Enum.map(&Tuple.to_list/1)
   end
 end

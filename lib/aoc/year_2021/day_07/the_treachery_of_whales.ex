@@ -34,7 +34,7 @@ defmodule Aoc.Year2021.Day07.TheTreacheryofWhales do
   def part_2(input) do
     input
     |> parse()
-    |> minimum_alignment_cost(&Enum.sum(1..abs(&1 - &2 - 1)))
+    |> minimum_alignment_cost(&Enum.sum(Range.new(1, abs(&1 - &2), 1)))
   end
 
   @doc """

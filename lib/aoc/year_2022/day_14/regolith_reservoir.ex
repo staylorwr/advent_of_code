@@ -113,7 +113,10 @@ defmodule Aoc.Year2022.Day14.RegolithReservoir do
       [from_col, from_row] = to_elems(from)
       [to_col, to_row] = to_elems(to)
 
-      line_pts = for x <- from_row..to_row, y <- from_col..to_col, do: {x, y}
+      line_pts =
+        for x <- from_row..to_row//if(from_row <= to_row, do: 1, else: -1),
+            y <- from_col..to_col//if(from_col <= to_col, do: 1, else: -1),
+            do: {x, y}
 
       line_pts
       |> MapSet.new()

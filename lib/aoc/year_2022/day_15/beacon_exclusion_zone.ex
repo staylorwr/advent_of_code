@@ -137,10 +137,10 @@ defmodule Aoc.Year2022.Day15.BeaconExclusionZone do
     The union of the points representing these four lines is the perimeter
     """
     def points_at_distance({cx, cy}, dist) do
-      line_a = for x <- dist..0, do: {x, dist - x}
-      line_b = for x <- -1..-dist, do: {x, x + dist}
-      line_c = for x <- -dist..0, do: {x, -x - dist}
-      line_d = for x <- 1..(dist - 1), do: {x, x - dist}
+      line_a = for x <- dist..0//-1, do: {x, dist - x}
+      line_b = for x <- -1..-dist//-1, do: {x, x + dist}
+      line_c = for x <- -dist..0//1, do: {x, -x - dist}
+      line_d = for x <- 1..(dist - 1)//1, do: {x, x - dist}
 
       [line_a, line_b, line_c, line_d]
       |> List.flatten()
