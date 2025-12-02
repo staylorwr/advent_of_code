@@ -1,4 +1,4 @@
 /{lib,test}/aoc/year_201[789]/*
-/{lib,test}/aoc/year_202[0123]/*
+/{lib,test}/aoc/year_202[01234]/*
 /priv/inputs/year_201[789]/*
-/priv/inputs/year_202[0123]/*
+/priv/inputs/year_202[01234]/*

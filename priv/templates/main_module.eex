@@ -1,6 +1,17 @@
 defmodule Aoc.Year<%= year %>.Day<%= day %>.<%= title %> do
-
   alias __MODULE__.Parser
+
+  defmodule Parser do
+    def parse(input) do
+      input
+    end
+  end
+
+  defmodule Part1 do
+    def solve(input) do
+      input
+    end
+  end
 
   def part_1(input) do
     input
@@ -11,11 +22,5 @@ defmodule Aoc.Year<%= year %>.Day<%= day %>.<%= title %> do
   def part_2(input) do
     input
     |> Parser.parse()
-  end
-
-  defmodule Parser do
-    def parse(input) do
-      input
-    end
   end
 end
