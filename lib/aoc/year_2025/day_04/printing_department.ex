@@ -17,10 +17,6 @@ defmodule Aoc.Year2025.Day04.PrintingDepartment do
   @type cell :: :empty | :roll
   @type grid :: %{position() => cell()}
 
-  # ============================================================================
-  # Public API
-  # ============================================================================
-
   @doc "Count rolls that can be picked up in a single pass"
   def part_1(input) do
     grid = Parser.parse(input)
